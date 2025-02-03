@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; //hook folosit pentru gestionarea starii unei componente
 import { Button, Text, View } from "react-native";
 
 const App = () => {
-  const [pressedCount, setPressedCount] = useState(0);
+  const [pressedCount, setPressedCount] = useState(0);     //const [state (var), setState (function)] = useState(initialValue);
+  const [text, setText] = useState('Buna ziua!');
 
   return (
     <View
@@ -19,6 +20,17 @@ const App = () => {
         disabled={pressedCount >= 3}
       />
       <Button title="Reset count" onPress={() => setPressedCount(0)} />
+
+      <Text style={{ margin: 16 }}>
+        {text === 'Buna ziua!'
+          ? `The text has changed to ${text} name.`
+          : `The text has changed to ${text} name.`}
+      </Text>
+      <Button
+        title="Change my name"
+        onPress={() => setText('La revedere!')}
+      />
+      <Button title="Reset count" onPress={() => setText('Buna ziua!')} />
     </View>
   );
 };
